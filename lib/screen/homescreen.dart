@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Showcase(
                       key: _key1,
-                      title: '1. Profile',
+                      title: '1. Create an Account',
                       description: 'Create an account to get started with your first purchase',
                       shapeBorder: const CircleBorder(),
                       showcaseBackgroundColor: Colors.amberAccent,
@@ -154,7 +154,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Showcase(
                 key: _key2,
-                description: '2. Select any amount and proceed to payment',
+                title: '2. Initial Purchase',
+                description: 'Select any amount for your initial purchase and proceed to payment',
                 showcaseBackgroundColor: Colors.amberAccent,
                 descTextStyle: const TextStyle(
                   fontWeight: FontWeight.w600,
