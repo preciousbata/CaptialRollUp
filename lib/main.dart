@@ -1,5 +1,6 @@
 import 'package:captialrollup/screen/homescreen.dart';
 import 'package:flutter/material.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,14 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Nunito',
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen()
+      home:ShowCaseWidget(
+          builder: Builder(
+          builder: (context) => HomeScreen(),
+    ),
+         autoPlay: true,
+         autoPlayDelay: const Duration(seconds: 5),
+         blurValue: 2,
+       ),
     );
   }
 }
