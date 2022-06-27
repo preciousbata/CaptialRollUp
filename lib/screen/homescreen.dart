@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _key1 = GlobalKey();
   final _key2 = GlobalKey();
-  //final _key3 = GlobalKey();
+  final _key3 = GlobalKey();
 
   @override
   void initState(){
@@ -19,7 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     WidgetsBinding.instance?.addPostFrameCallback((_) => ShowCaseWidget.of(context).startShowCase([
       _key1,
-      _key2
+      _key2,
+      _key3,
     ])
     );
   }
@@ -44,10 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: '1. Create an Account',
                       description: 'Create an account to get started with your first purchase',
                       shapeBorder: const CircleBorder(),
-                      showcaseBackgroundColor: Colors.amberAccent,
+                      showcaseBackgroundColor: Colors.white,
                       descTextStyle: const TextStyle(
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: Colors.black54,
                         fontSize: 16,
                       ),
                       overlayPadding: const EdgeInsets.all(8),
@@ -63,46 +64,60 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Row(
                       children: [
-                        Container(
-                          height: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.070,
-                          width: MediaQuery
-                              .of(context)
-                              .size
-                              .width * 0.44,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                              color: Colors.white,
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 1.0,
-                                  spreadRadius: 1.0,
-                                )
-                              ]),
-                          child: Padding(
-                            padding:
-                            const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: Row(
-                              children: const [
-                                Icon(
-                                  Icons.menu_rounded,
-                                  color: Colors.black,
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text(
-                                  'Discover',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w900,
-                                      color: Colors.black,
-                                      fontSize: 22,
-                                      letterSpacing: 1),
-                                ),
-                              ],
+                        Showcase(
+                          key: _key2,
+                          title: '2. Discover ',
+                          description: 'Discover your favorite crypto here!!',
+                          shapeBorder: const CircleBorder(),
+                          showcaseBackgroundColor: Colors.white,
+                          descTextStyle: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black54,
+                            fontSize: 16,
+                          ),
+                          overlayPadding: const EdgeInsets.all(8),
+                          contentPadding: const EdgeInsets.all(20),
+                          child: Container(
+                            height: MediaQuery
+                                .of(context)
+                                .size
+                                .height * 0.070,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width * 0.44,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40),
+                                color: Colors.white,
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black54,
+                                    blurRadius: 1.0,
+                                    spreadRadius: 1.0,
+                                  )
+                                ]),
+                            child: Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 20.0),
+                              child: Row(
+                                children: const [
+                                  Icon(
+                                    Icons.menu_rounded,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    'Discover',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.black,
+                                        fontSize: 22,
+                                        letterSpacing: 1),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -153,73 +168,77 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 30,
               ),
               Showcase(
-                key: _key2,
-                title: '2. Initial Purchase',
-                description: 'Select any amount for your initial purchase and proceed to payment',
-                showcaseBackgroundColor: Colors.amberAccent,
+                key: _key3,
+                title: '3. Payment',
+                description: 'Tap the predefined amount or other amount to select the amount of your choice, and proceed to payment.',
+                showcaseBackgroundColor: Colors.white,
                 descTextStyle: const TextStyle(
                   fontWeight: FontWeight.w600,
-                  color: Colors.white,
+                  color: Colors.black54,
                   fontSize: 16,
                 ),
                 overlayPadding: const EdgeInsets.all(8),
                 contentPadding: const EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
                   children: [
-                    buildContainer(
-                        name: '100',
-                        fontColor: Colors.cyanAccent,
-                        bgColor: Colors.cyan),
-                    buildContainer(
-                        name: '200',
-                        fontColor: Colors.cyanAccent,
-                        bgColor: Colors.cyan),
-                    buildContainer(
-                        name: '300',
-                        bgColor: Colors.purple,
-                        fontColor: Colors.purpleAccent),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        buildContainer(
+                            name: '100',
+                            fontColor: Colors.cyanAccent,
+                            bgColor: Colors.cyan),
+                        buildContainer(
+                            name: '200',
+                            fontColor: Colors.cyanAccent,
+                            bgColor: Colors.cyan),
+                        buildContainer(
+                            name: '300',
+                            bgColor: Colors.purple,
+                            fontColor: Colors.purpleAccent),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    //other amount
+                    Container(
+                      height: MediaQuery
+                          .of(context)
+                          .size
+                          .height * 0.076,
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width * 0.58,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                        color: Colors.white54,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.apps_outage_rounded,
+                              color: Colors.black38,
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              'Other amount',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.black38,
+                                  fontSize: 22,
+                                  letterSpacing: 1),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              //other amount
-              Container(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * 0.076,
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.58,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color: Colors.white54,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    children: const [
-                      Icon(
-                        Icons.apps_outage_rounded,
-                        color: Colors.black38,
-                      ),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        'Other amount',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black38,
-                            fontSize: 22,
-                            letterSpacing: 1),
-                      ),
-                    ],
-                  ),
                 ),
               ),
               const SizedBox(
